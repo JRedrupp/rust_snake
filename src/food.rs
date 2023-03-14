@@ -3,10 +3,7 @@ use speedy2d::shape::Rectangle;
 use speedy2d::Graphics2D;
 
 use crate::scoreboard::Scoreboard;
-use crate::CELL_HEIGHT;
-use crate::CELL_WIDTH;
-use crate::WINDOW_HEIGHT;
-use crate::WINDOW_WIDTH;
+use crate::settings::{CELL_HEIGHT, CELL_WIDTH, WINDOW_HEIGHT, WINDOW_WIDTH};
 
 pub struct Food {
     x: i32,

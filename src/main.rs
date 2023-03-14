@@ -1,5 +1,6 @@
 use chrono::Utc;
 use game::Game;
+use settings::{APP_NAME, FRAME_RATE, WINDOW_HEIGHT, WINDOW_WIDTH};
 use speedy2d::color::Color;
 use speedy2d::window::{WindowHandler, WindowHelper};
 use speedy2d::Graphics2D;
@@ -8,15 +9,8 @@ use speedy2d::Window;
 mod food;
 mod game;
 mod scoreboard;
+mod settings;
 mod snake;
-
-const APP_NAME: &str = "Rust Snake";
-const WINDOW_HEIGHT: u32 = 704;
-const WINDOW_WIDTH: u32 = 640;
-const CELL_HEIGHT: u32 = 20;
-const CELL_WIDTH: u32 = 20;
-const FRAME_RATE: f32 = 10.0;
-const CREATE_FOOD_CHANCE: f32 = 0.01;
 
 #[derive(Clone, Copy, PartialEq)]
 pub enum Direction {

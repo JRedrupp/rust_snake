@@ -6,8 +6,9 @@ use speedy2d::Graphics2D;
 
 use crate::food::Food;
 use crate::scoreboard::Scoreboard;
+use crate::settings::{CREATE_FOOD_CHANCE, WINDOW_HEIGHT, WINDOW_WIDTH};
 use crate::snake::Snake;
-use crate::{Direction, CREATE_FOOD_CHANCE, WINDOW_HEIGHT, WINDOW_WIDTH};
+use crate::Direction;
 
 pub struct Game {
     snake: Snake,
