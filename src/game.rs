@@ -16,6 +16,7 @@ pub struct Game {
     scoreboard: Scoreboard,
     font: Font,
     is_paused: bool,
+    direction_lock: bool,
 }
 
 impl Game {
@@ -27,6 +28,7 @@ impl Game {
             font: font,
             scoreboard: Scoreboard::new(),
             is_paused: false,
+            direction_lock: false,
         }
     }
 
@@ -57,6 +59,9 @@ impl Game {
         if rand::random::<f32>() < CREATE_FOOD_CHANCE || self.foods.len() == 0 {
             self.foods.push(Food::new());
         }
+
+        // Unlock the direction lock
+        self.direction_lock = false;
     }
 
     pub fn draw(&self, graphics: &mut Graphics2D) {
@@ -94,7 +99,11 @@ impl Game {
     }
 
     pub fn change_direction(&mut self, direction: Direction) {
+        if self.direction_lock {
+            return;
+        }
         self.snake.change_direction(direction);
+        self.direction_lock = true;
     }
 
     pub fn is_over(&self) -> bool {
