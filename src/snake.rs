@@ -1,4 +1,3 @@
-use rand;
 use speedy2d::color::Color;
 use speedy2d::shape::Rectangle;
 use speedy2d::Graphics2D;
@@ -141,6 +140,6 @@ impl Snake {
         if (first_point.x - xy.0).abs() < 2 && (first_point.y - xy.1).abs() < 2 {
             return true;
         }
-        return false;
+        false
     }
 }

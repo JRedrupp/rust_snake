@@ -1,4 +1,3 @@
-use rand;
 use speedy2d::color::Color;
 use speedy2d::dimen::Vec2;
 use speedy2d::font::{Font, TextAlignment, TextLayout, TextOptions};
@@ -25,7 +24,7 @@ impl Game {
         Game {
             snake: Snake::new(),
             foods: vec![Food::new()],
-            font: font,
+            font,
             scoreboard: Scoreboard::new(),
             is_paused: false,
             direction_lock: false,
@@ -56,7 +55,7 @@ impl Game {
         self.snake.update(eaten_food);
 
         // Create a new food with a random chance
-        if rand::random::<f32>() < CREATE_FOOD_CHANCE || self.foods.len() == 0 {
+        if rand::random::<f32>() < CREATE_FOOD_CHANCE || self.foods.is_empty() {
             self.foods.push(Food::new());
         }
 

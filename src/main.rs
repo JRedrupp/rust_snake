@@ -12,7 +12,7 @@ mod scoreboard;
 mod settings;
 mod snake;
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Direction {
     Up,
     Down,
